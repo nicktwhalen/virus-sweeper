@@ -1,2 +1,3 @@
 npx tsc --noEmit
+yarn stylelint 'src/**/*.css'
 yarn lint-staged

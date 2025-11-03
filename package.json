@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "yarn lint:css && eslint .",
+    "lint:css": "stylelint 'src/**/*.css'",
+    "lint:css:fix": "stylelint 'src/**/*.css' --fix",
     "preview": "vite preview",
-    "check-format": "prettier --check '**/*.ts' '**/*.tsx'",
-    "format": "prettier --write '**/*.ts' '**/*.tsx'"
+    "clean": "rm -rf node_modules dist .vite .tsbuildinfo",
+    "check-format": "prettier --check '**/*.{ts,tsx,css,json,md}'",
+    "format": "prettier --write '**/*.{ts,tsx,css,json,md}'"
   },
   "dependencies": {
     "mini.css": "^3.0.1",
@@ -18,7 +21,8 @@
   },
   "lint-staged": {
     "**/*.ts": "prettier --write --ignore-unknown",
-    "**/*.tsx": "prettier --write --ignore-unknown"
+    "**/*.tsx": "prettier --write --ignore-unknown",
+    "**/*.css": "prettier --write --ignore-unknown"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
@@ -32,6 +36,8 @@
     "globals": "^16.4.0",
     "lint-staged": "^16.2.6",
     "prettier": "^3.6.2",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^39.0.1",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.45.0",
     "vite": "^7.1.7"
