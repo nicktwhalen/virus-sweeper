@@ -70,6 +70,7 @@ export function Cell({
 
   return (
     <div
+      data-revealed={cellState.isRevealed.toString()}
       className={styles.cell}
       onMouseDown={handlePressStart}
       onMouseUp={handlePressEnd}

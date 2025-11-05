@@ -14,11 +14,11 @@ const gameConfig: GameConfig = { rows: 9, columns: 9, bombs: 10 };
 
 function App() {
   const [cells, setCells] = useState<CellState[][]>(
-    initializeBoard(gameConfig)
+    initializeBoard(gameConfig),
   );
   const [timer, setTimer] = useState(0);
   const [gameStatus, setGameStatus] = useState<GameStatus>(
-    GameStatus.NOT_STARTED
+    GameStatus.NOT_STARTED,
   );
 
   const remainingBombs =
@@ -39,7 +39,7 @@ function App() {
 
   function getCellsClone(): CellState[][] {
     return cells.map((rowOfCells) =>
-      rowOfCells.map((cellState) => ({ ...cellState }))
+      rowOfCells.map((cellState) => ({ ...cellState })),
     );
   }
 
@@ -92,8 +92,10 @@ function App() {
   return (
     <>
       <h1>Virus Sweeper</h1>
-      <div>bombs remaining: {remainingBombs}</div>
-      <div>timer: {timer}</div>
+      <div className="stats">
+        <div>Viruses Remaining: {remainingBombs}</div>
+        <div>Timer: {timer}</div>
+      </div>
       <Board
         cells={cells}
         onCellClick={handleCellClick}
