@@ -1,14 +1,14 @@
+export interface BoardProps {
+  cells: CellState[][];
+  onCellClick: (row: number, column: number) => void;
+  onCellLongPress: (row: number, column: number) => void;
+}
+
 export interface CellState {
   isBomb: boolean;
   adjacentBombs: number;
   isRevealed: boolean;
   isFlagged: boolean;
-}
-
-export interface BoardProps {
-  cells: CellState[][];
-  onCellClick: (row: number, column: number) => void;
-  onCellLongPress: (row: number, column: number) => void;
 }
 
 export interface CellProps extends CellState {

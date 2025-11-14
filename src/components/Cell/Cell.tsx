@@ -19,7 +19,7 @@ function getCellText({
   } else if (isFlagged) {
     return "💉";
   } else {
-    return "🩸"; // + (isBomb ? "💣" : adjacentBombs);
+    return "🩸";
   }
 }
 
@@ -28,7 +28,6 @@ export function Cell({
   onCellLongPress,
   ...cellState
 }: CellProps) {
-  // Add these two refs (don't use them yet)
   const mouseDownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const longPressTriggered = useRef(false);
 

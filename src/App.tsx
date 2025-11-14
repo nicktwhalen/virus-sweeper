@@ -9,6 +9,8 @@ import {
   revealAllBombs,
   revealCell,
 } from "./utils/utils";
+// import { Modal } from "./components/Modal/Modal";
+import { GameOverModal } from "./components/Modal/GameOverModal";
 
 const gameConfig: GameConfig = { rows: 9, columns: 9, bombs: 10 };
 
@@ -89,6 +91,12 @@ function App() {
     setCells(updated);
   }
 
+  function handleGameRestart() {
+    setCells(initializeBoard(gameConfig));
+    setTimer(0);
+    setGameStatus(GameStatus.NOT_STARTED);
+  }
+
   return (
     <>
       <h1>Virus Sweeper</h1>
@@ -100,6 +108,12 @@ function App() {
         cells={cells}
         onCellClick={handleCellClick}
         onCellLongPress={handleCellLongPress}
+      />
+      <GameOverModal
+        isOpen={isGameOver}
+        gameStatus={gameStatus}
+        timer={timer}
+        onClose={handleGameRestart}
       />
     </>
   );
