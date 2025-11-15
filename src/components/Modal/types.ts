@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { GameStatus } from "../../types/game";
+import type { GameDifficulty, GameStatus } from "../../types/game";
 
 export interface ModalProps {
   isOpen: boolean;
@@ -17,6 +17,6 @@ export interface GameOverProps {
 export interface SettingsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  difficulty: string;
-  onDifficultyChange: (difficulty: string) => void;
+  difficulty: GameDifficulty;
+  onDifficultyChange: (difficulty: GameDifficulty) => void;
 }

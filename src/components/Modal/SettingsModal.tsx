@@ -1,3 +1,4 @@
+import { GameDifficulty } from "../../types/game";
 import { Modal } from "./Modal";
 import styles from "./SettingsModal.module.css";
 import type { SettingsModalProps } from "./types";
@@ -27,22 +28,22 @@ export function SettingsModal({
           <h3 className={styles.subtitle}>Difficulty</h3>
           <div className={styles.options}>
             <button
-              className={`${styles.option} ${difficulty === "beginner" ? styles.active : ""}`}
-              onClick={() => onDifficultyChange("beginner")}
+              className={`${styles.option} ${difficulty === GameDifficulty.BEGINNER ? styles.active : ""}`}
+              onClick={() => onDifficultyChange(GameDifficulty.BEGINNER)}
             >
               Beginner: 9×9 with 10 viruses
             </button>
 
             <button
-              className={`${styles.option} ${difficulty === "intermediate" ? styles.active : ""}`}
-              onClick={() => onDifficultyChange("intermediate")}
+              className={`${styles.option} ${difficulty === GameDifficulty.INTERMEDIATE ? styles.active : ""}`}
+              onClick={() => onDifficultyChange(GameDifficulty.INTERMEDIATE)}
             >
               Intermediate: 16×16 with 40 viruses
             </button>
 
             <button
-              className={`${styles.option} ${difficulty === "expert" ? styles.active : ""}`}
-              onClick={() => onDifficultyChange("expert")}
+              className={`${styles.option} ${difficulty === GameDifficulty.EXPERT ? styles.active : ""}`}
+              onClick={() => onDifficultyChange(GameDifficulty.EXPERT)}
             >
               Expert: 16×30 with 99 viruses
             </button>

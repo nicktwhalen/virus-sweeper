@@ -28,3 +28,9 @@ export enum GameStatus {
   WON = "won",
   LOST = "lost",
 }
+
+export enum GameDifficulty {
+  BEGINNER = "beginner",
+  INTERMEDIATE = "intermediate",
+  EXPERT = "expert",
+}

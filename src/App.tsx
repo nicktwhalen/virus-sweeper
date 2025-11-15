@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Board } from "./components/Board/Board";
-import type { CellState, GameConfig } from "./types/game";
+import { GameDifficulty, type CellState } from "./types/game";
 import { GameStatus } from "./types/game";
 import {
   addBombsExcluding,
@@ -12,9 +12,19 @@ import {
 import { GameOverModal } from "./components/Modal/GameOverModal";
 import { SettingsModal } from "./components/Modal/SettingsModal";
 
-const gameConfig: GameConfig = { rows: 9, columns: 9, bombs: 10 };
+function getGameConfig(difficulty: GameDifficulty) {
+  if (difficulty === GameDifficulty.BEGINNER) {
+    return { rows: 9, columns: 9, bombs: 10 };
+  } else if (difficulty === GameDifficulty.INTERMEDIATE) {
+    return { rows: 16, columns: 16, bombs: 40 };
+  } else {
+    return { rows: 16, columns: 30, bombs: 99 };
+  }
+}
 
 function App() {
+  const [difficulty, setDifficulty] = useState(GameDifficulty.BEGINNER);
+  const gameConfig = getGameConfig(difficulty);
   const [cells, setCells] = useState<CellState[][]>(
     initializeBoard(gameConfig),
   );
@@ -23,7 +33,6 @@ function App() {
     GameStatus.NOT_STARTED,
   );
   const [showSettings, setShowSettings] = useState(false);
-  const [difficulty, setDifficulty] = useState("beginner");
 
   const remainingBombs =
     gameConfig.bombs - cells.flat().filter((cell) => cell.isFlagged).length;
@@ -93,16 +102,22 @@ function App() {
     setCells(updated);
   }
 
-  function handleRestart() {
-    setCells(initializeBoard(gameConfig));
+  function handleRestart(difficulty?: GameDifficulty) {
+    if (difficulty) {
+      setCells(initializeBoard(getGameConfig(difficulty)));
+    } else {
+      setCells(initializeBoard(gameConfig));
+    }
     setTimer(0);
     setGameStatus(GameStatus.NOT_STARTED);
   }
 
-  function handleDifficultyChange(newDifficulty: string) {
-    setDifficulty(newDifficulty);
+  function handleDifficultyChange(newDifficulty: GameDifficulty) {
+    if (newDifficulty !== difficulty) {
+      setDifficulty(newDifficulty);
+      handleRestart(newDifficulty);
+    }
     setShowSettings(false);
-    // TODO: implement this
   }
 
   return (
@@ -118,7 +133,10 @@ function App() {
             <div className="icon">⏱️ {timer}</div>
             <div className="label">Timer</div>
           </div>
-          <button className="status-item clickable" onClick={handleRestart}>
+          <button
+            className="status-item clickable"
+            onClick={() => handleRestart}
+          >
             <div className="icon">🔄</div>
             <div className="label">Restart</div>
           </button>
@@ -140,7 +158,7 @@ function App() {
         isOpen={isGameOver}
         gameStatus={gameStatus}
         timer={timer}
-        onClose={handleRestart}
+        onClose={() => handleRestart()}
       />
       <SettingsModal
         isOpen={showSettings}
