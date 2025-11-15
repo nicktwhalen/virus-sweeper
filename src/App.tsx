@@ -9,8 +9,8 @@ import {
   revealAllBombs,
   revealCell,
 } from "./utils/utils";
-// import { Modal } from "./components/Modal/Modal";
 import { GameOverModal } from "./components/Modal/GameOverModal";
+import { SettingsModal } from "./components/Modal/SettingsModal";
 
 const gameConfig: GameConfig = { rows: 9, columns: 9, bombs: 10 };
 
@@ -22,6 +22,8 @@ function App() {
   const [gameStatus, setGameStatus] = useState<GameStatus>(
     GameStatus.NOT_STARTED,
   );
+  const [showSettings, setShowSettings] = useState(false);
+  const [difficulty, setDifficulty] = useState("beginner");
 
   const remainingBombs =
     gameConfig.bombs - cells.flat().filter((cell) => cell.isFlagged).length;
@@ -91,29 +93,60 @@ function App() {
     setCells(updated);
   }
 
-  function handleGameRestart() {
+  function handleRestart() {
     setCells(initializeBoard(gameConfig));
     setTimer(0);
     setGameStatus(GameStatus.NOT_STARTED);
   }
 
+  function handleDifficultyChange(newDifficulty: string) {
+    setDifficulty(newDifficulty);
+    setShowSettings(false);
+    // TODO: implement this
+  }
+
   return (
     <>
       <h1>Virus Sweeper</h1>
-      <div className="stats">
-        <div>Viruses Remaining: {remainingBombs}</div>
-        <div>Timer: {timer}</div>
+      <div className="game-container">
+        <div className="status-bar">
+          <div className="status-item">
+            <div className="icon">🦠 {remainingBombs}</div>
+            <div className="label">Viruses</div>
+          </div>
+          <div className="status-item">
+            <div className="icon">⏱️ {timer}</div>
+            <div className="label">Timer</div>
+          </div>
+          <button className="status-item clickable" onClick={handleRestart}>
+            <div className="icon">🔄</div>
+            <div className="label">Restart</div>
+          </button>
+          <button
+            className="status-item clickable"
+            onClick={() => setShowSettings(true)}
+          >
+            <div className="icon">⚙️</div>
+            <div className="label">Menu</div>
+          </button>
+        </div>
+        <Board
+          cells={cells}
+          onCellClick={handleCellClick}
+          onCellLongPress={handleCellLongPress}
+        />
       </div>
-      <Board
-        cells={cells}
-        onCellClick={handleCellClick}
-        onCellLongPress={handleCellLongPress}
-      />
       <GameOverModal
         isOpen={isGameOver}
         gameStatus={gameStatus}
         timer={timer}
-        onClose={handleGameRestart}
+        onClose={handleRestart}
+      />
+      <SettingsModal
+        isOpen={showSettings}
+        onClose={() => setShowSettings(false)}
+        difficulty={difficulty}
+        onDifficultyChange={handleDifficultyChange}
       />
     </>
   );

@@ -23,7 +23,7 @@ export function SettingsModal({
           <p className={styles.text}>Hold to tag a cell as infected.</p>
         </div>
 
-        {/* <div className={styles.section}>
+        <div className={styles.section}>
           <h3 className={styles.subtitle}>Difficulty</h3>
           <div className={styles.options}>
             <button
@@ -47,7 +47,7 @@ export function SettingsModal({
               Expert: 16×30 with 99 viruses
             </button>
           </div>
-        </div> */}
+        </div>
 
         <button className={styles.closeButton} onClick={onClose}>
           Close

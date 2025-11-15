@@ -13,3 +13,10 @@ export interface GameOverProps {
   gameStatus: GameStatus;
   timer: number;
 }
+
+export interface SettingsModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  difficulty: string;
+  onDifficultyChange: (difficulty: string) => void;
+}

@@ -1,10 +1,7 @@
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background: rgb(0 0 0 / 50%);
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -17,7 +14,7 @@
   padding: 20px;
   border-radius: 16px;
   border: 3px solid #fda4af;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 30%);
   max-width: 90vw;
   max-height: 90vh;
   overflow: auto;
