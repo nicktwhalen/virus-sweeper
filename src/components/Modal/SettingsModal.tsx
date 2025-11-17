@@ -12,7 +12,7 @@ export function SettingsModal({
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className={styles.content}>
-        <h2 className={styles.title}>Menu</h2>
+        <h2 className={styles.title}>Virus Sweeper</h2>
         <p className={styles.story}>
           Viruses 🦠 have entered the bloodstream 🩸. You are a B Cell trained
           to identify 💉 and tag infected cells before the infection spreads.

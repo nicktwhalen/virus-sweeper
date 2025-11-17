@@ -50,6 +50,13 @@ function App() {
     }
   }, [gameStatus]);
 
+  useEffect(() => {
+    if (localStorage.getItem("virus-sweeper-first-visit") === null) {
+      setShowSettings(true);
+      localStorage.setItem("virus-sweeper-first-visit", "true");
+    }
+  }, []);
+
   function getCellsClone(): CellState[][] {
     return cells.map((rowOfCells) =>
       rowOfCells.map((cellState) => ({ ...cellState })),
@@ -74,13 +81,11 @@ function App() {
     }
 
     if (updated[row][column].isBomb) {
-      console.log("you clicked a bomb. game over.");
       revealAllBombs(updated);
       setGameStatus(GameStatus.LOST);
     } else {
       revealCell(updated, row, column);
       if (isWinGame(updated)) {
-        console.log("you win! game over.");
         setGameStatus(GameStatus.WON);
       }
     }
@@ -135,7 +140,7 @@ function App() {
           </div>
           <button
             className="status-item clickable"
-            onClick={() => handleRestart}
+            onClick={() => handleRestart()}
           >
             <div className="icon">🔄</div>
             <div className="label">Restart</div>
