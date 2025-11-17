@@ -3,10 +3,14 @@ import { Cell } from "../Cell/Cell";
 import styles from "./Board.module.css";
 
 export function Board({ cells, onCellClick, onCellLongPress }: BoardProps) {
+  const columns = cells[0]?.length || 0;
+
   return (
     <div
       className={styles.board}
-      style={{ gridTemplateColumns: `repeat(${cells[0].length}, 1fr)` }}
+      style={{
+        gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
+      }}
     >
       {cells.map((rowOfCells, row) =>
         rowOfCells.map((cellState, column) => (

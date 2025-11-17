@@ -89,3 +89,46 @@
 .closeButton:active {
   transform: scale(0.95);
 }
+
+/* Mobile: Make modal more compact */
+@media (width <= 480px) {
+  .title {
+    font-size: 18px;
+    margin: 0 0 8px;
+  }
+
+  .story {
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0 0 12px;
+  }
+
+  .section {
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    margin: 0 0 6px;
+  }
+
+  .text {
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0 0 3px;
+  }
+
+  .options {
+    gap: 3px;
+  }
+
+  .option {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .closeButton {
+    padding: 10px 24px;
+    font-size: 15px;
+  }
+}

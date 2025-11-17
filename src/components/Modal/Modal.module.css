@@ -19,3 +19,13 @@
   max-height: 90vh;
   overflow: auto;
 }
+
+/* Mobile: More compact modal */
+@media (width <= 480px) {
+  .modal {
+    padding: 16px;
+    border-radius: 12px;
+    border-width: 2px;
+    max-height: 85vh;
+  }
+}
