@@ -7,14 +7,11 @@
   border-radius: clamp(12px, 1.5vw, 16px);
   border: clamp(2px, 0.3vw, 3px) solid var(--color-border);
   box-shadow: 0 8px 24px rgb(0 0 0 / 15%);
-
-  /* Constrain to viewport width */
   max-width: calc(100vw - 40px);
   width: 100%;
   box-sizing: border-box;
 }
 
-/* On larger screens, constrain height to prevent scrolling */
 @media (width >= 768px) {
   .board {
     height: 100%;
@@ -23,7 +20,6 @@
   }
 }
 
-/* For very small screens, reduce all spacing further */
 @media (width <= 375px) {
   .board {
     gap: 1px;

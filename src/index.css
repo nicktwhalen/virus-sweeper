@@ -34,7 +34,6 @@ body {
   box-sizing: border-box;
 }
 
-/* On larger screens, lock to viewport height */
 @media (width >= 768px) {
   #root {
     height: 100vh;
@@ -61,7 +60,6 @@ h1 {
   align-items: stretch;
 }
 
-/* On larger screens, use flex to fill available space */
 @media (width >= 768px) {
   .game-container {
     flex: 1;
@@ -89,7 +87,9 @@ h1 {
   font-weight: 700;
   color: var(--color-primary);
   cursor: default;
-  transition: all 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
   border-radius: 8px;
   display: flex;
   flex-direction: column;

@@ -1,17 +1,10 @@
 .cell {
-  /* Base size uses aspect-ratio to stay square */
   aspect-ratio: 1;
   width: 100%;
-
-  /* Allow cells to shrink based on available space */
   min-width: 8px;
   min-height: 8px;
   max-width: 56px;
   max-height: 56px;
-
-  /* Responsive font size - scales with cell size */
-
-  /* Using container-relative units would be ideal, but fallback to vw */
   font-size: clamp(10px, 2.5vw, 28px);
   border-radius: clamp(2px, 0.8vw, 10px);
   background: linear-gradient(
@@ -28,7 +21,9 @@
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transition: all 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
   overflow: hidden;
   line-height: 1;
   box-sizing: border-box;
@@ -36,7 +31,6 @@
   z-index: 1;
 }
 
-/* Mobile - font must be much smaller for many columns */
 @media (width <= 375px) {
   .cell {
     min-width: 10px;
