@@ -26,7 +26,7 @@ export function GameOverModal({
           </p>
           <p className={styles.message}>Timer: {timer} seconds.</p>
         </div>
-        <button className={styles.button} onClick={onClose}>
+        <button className="primary-button" onClick={onClose}>
           Play Again
         </button>
       </div>

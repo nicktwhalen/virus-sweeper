@@ -21,31 +21,3 @@
   margin: 0 0 16px;
   line-height: 1.4;
 }
-
-.button {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-light) 0%,
-    var(--color-primary) 100%
-  );
-  color: white;
-  border: none;
-  padding: 12px 32px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
-}
-
-.button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgb(0 0 0 / 25%);
-  background: linear-gradient(135deg, #f472b6 0%, #db2777 100%);
-}
-
-.button:active {
-  transform: scale(0.95);
-  box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
-}

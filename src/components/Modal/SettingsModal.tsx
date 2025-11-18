@@ -50,7 +50,7 @@ export function SettingsModal({
           </div>
         </div>
 
-        <button className={styles.closeButton} onClick={onClose}>
+        <button className="primary-button" onClick={onClose}>
           Close
         </button>
       </div>
