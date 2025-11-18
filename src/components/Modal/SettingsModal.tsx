@@ -15,13 +15,14 @@ export function SettingsModal({
         <h2 className={styles.title}>Virus Sweeper</h2>
         <p className={styles.story}>
           Viruses 🦠 have entered the bloodstream 🩸. You are a B Cell trained
-          to identify 💉 and tag infected cells before the infection spreads.
+          to identify 💉 infected cells before the 🦠 virus spreads.
         </p>
 
         <div className={styles.section}>
           <h3 className={styles.subtitle}>How to Play</h3>
-          <p className={styles.text}>Tap to reveal a cell.</p>
-          <p className={styles.text}>Hold to tag a cell as infected.</p>
+          <p className={styles.text}>1. Tap to reveal a cell.</p>
+          <p className={styles.text}>2. Hold to identify a cell as a virus.</p>
+          <p className={styles.text}>3. Reveal all non-virus cells to win.</p>
         </div>
 
         <div className={styles.section}>

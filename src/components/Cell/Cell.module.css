@@ -1,11 +1,11 @@
 .cell {
   aspect-ratio: 1;
   width: 100%;
-  min-width: 8px;
-  min-height: 8px;
+  min-width: clamp(8px, 2vw, 10px);
+  min-height: clamp(8px, 2vw, 10px);
   max-width: 56px;
   max-height: 56px;
-  font-size: clamp(10px, 2.5vw, 28px);
+  font-size: clamp(10px, 2vw, 28px);
   border-radius: clamp(2px, 0.8vw, 10px);
   background: linear-gradient(
     135deg,
@@ -29,21 +29,6 @@
   box-sizing: border-box;
   position: relative;
   z-index: 1;
-}
-
-@media (width <= 375px) {
-  .cell {
-    min-width: 10px;
-    min-height: 10px;
-    font-size: clamp(7px, 1.5vw, 14px);
-    border-radius: 2px;
-  }
-}
-
-@media (width >= 768px) {
-  .cell {
-    font-size: clamp(14px, 1.8vw, 28px);
-  }
 }
 
 @media (hover: hover) {
