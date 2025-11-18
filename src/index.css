@@ -1,5 +1,16 @@
 @import url("../node_modules/mini.css/dist/mini-default.min.css");
 
+:root {
+  --color-primary: #be185d;
+  --color-primary-light: #ec4899;
+  --color-border: #fda4af;
+  --color-border-hover: #fb7185;
+  --color-bg-gradient-start: #ffe4e6;
+  --color-bg-gradient-end: #fecdd3;
+  --color-blue-light: #e0f2fe;
+  --color-blue-border: #bae6fd;
+}
+
 body {
   background: radial-gradient(
     circle at center,
@@ -34,7 +45,7 @@ body {
 
 h1 {
   font-size: 32px;
-  color: #be185d;
+  color: var(--color-primary);
   margin: 0 0 20px;
   text-align: center;
   font-weight: 800;
@@ -67,7 +78,7 @@ h1 {
   background: white;
   padding: 4px;
   border-radius: 12px;
-  border: 2px solid #fda4af;
+  border: 2px solid var(--color-border);
   box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
@@ -76,7 +87,7 @@ h1 {
   border: none;
   padding: 4px 8px;
   font-weight: 700;
-  color: #be185d;
+  color: var(--color-primary);
   cursor: default;
   transition: all 0.15s ease;
   border-radius: 8px;
@@ -102,12 +113,20 @@ h1 {
 
 .status-item.clickable {
   cursor: pointer;
-  background: linear-gradient(135deg, #ffe4e6 0%, #fecdd3 100%);
-  border: 2px solid #fda4af;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-gradient-start) 0%,
+    var(--color-bg-gradient-end) 100%
+  );
+  border: 2px solid var(--color-border);
 }
 
 .status-item.clickable:hover {
-  background: linear-gradient(135deg, #fecdd3 0%, #fda4af 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-gradient-end) 0%,
+    var(--color-border) 100%
+  );
   transform: translateY(-2px);
   box-shadow: 0 2px 4px rgb(0 0 0 / 15%);
 }

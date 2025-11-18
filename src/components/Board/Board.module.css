@@ -5,7 +5,7 @@
   padding: clamp(8px, 1.5vw, 16px);
   background: white;
   border-radius: clamp(12px, 1.5vw, 16px);
-  border: clamp(2px, 0.3vw, 3px) solid #fda4af;
+  border: clamp(2px, 0.3vw, 3px) solid var(--color-border);
   box-shadow: 0 8px 24px rgb(0 0 0 / 15%);
 
   /* Constrain to viewport width */
