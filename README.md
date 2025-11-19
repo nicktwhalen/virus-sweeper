@@ -1,6 +1,6 @@
 # Virus Sweeper
 
-A medical-themed minesweeper clone where the player is a T Cell and the goal is to identify and/or vaccinate viruses in the bloodstream.
+A medical-themed minesweeper clone. Viruses 🦠 have entered the bloodstream 🩸. You are a B Cell trained to identify 💉 infected cells before the 🦠 virus spreads.
 
 ## Getting Started
 
